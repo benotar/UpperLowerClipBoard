@@ -1,0 +1,82 @@
+﻿<Window x:Class="HW_Upper_Lower.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HW_Upper_Lower"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="600">
+    
+    <Window.Resources>
+        <Style x:Key="DefaultGridStyles" TargetType="Grid">
+            <Setter Property="Background" Value="RoyalBlue" />
+        </Style>
+
+        <Style x:Key="DefaultLabelStyles" TargetType="Label">
+            <Setter Property="FontFamily" Value="Consolas" />
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="10,0,0,0"/>
+        </Style>
+
+        <Style x:Key="DefaultTextBoxStyles" TargetType="TextBox">
+            <Setter Property="FontFamily" Value="Consolas" />
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Background" Value="AliceBlue" />
+        </Style>
+
+        <Style x:Key="DefaultRadioButtonStyles" TargetType="RadioButton">
+            <Setter Property="Margin" Value="20,20,0,0"/>
+        </Style>
+        
+        <LinearGradientBrush x:Key="ButtonGradient">
+            <GradientStop Color="Aqua" Offset="0"/>
+            <GradientStop Color="Yellow" Offset="1"/>
+        </LinearGradientBrush>
+        
+        <Style x:Key="DefaultButtonStyles" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource ButtonGradient}"></Setter>
+            <Setter Property="FontFamily" Value="Consolas" />
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+    </Window.Resources>
+    
+    <Grid ShowGridLines="False" Style="{StaticResource DefaultGridStyles}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="1" Content="Text" Style="{StaticResource DefaultLabelStyles}" />
+        
+        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
+                 Style="{StaticResource DefaultTextBoxStyles}" x:Name="InputTxtBox"/>
+        
+        <RadioButton Grid.Row="3" Grid.Column="0" Style="{StaticResource DefaultRadioButtonStyles}"
+                     x:Name="UpperRadioBtn"/>
+        
+        <RadioButton Grid.Row="4" Grid.Column="0" Style="{StaticResource DefaultRadioButtonStyles}"
+                     x:Name="LowerRadioBtn"/>
+       
+        <Label Grid.Row="3" Grid.Column="1" Content="Upper" Style="{StaticResource DefaultLabelStyles}" />
+        
+        <Label Grid.Row="4" Grid.Column="1" Content="Lower" Style="{StaticResource DefaultLabelStyles}" />
+        
+        <Button Grid.Row="6" Grid.Column="2" Content="Convert" Style="{StaticResource DefaultButtonStyles}"
+                Click="OnConvertBtnClick"/>
+    </Grid>
+</Window>
